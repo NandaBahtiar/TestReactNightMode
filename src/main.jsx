@@ -5,7 +5,7 @@ import "./index.css";
 import HeaderComponent from "./components/HeaderComponent.jsx";
  
 import Skill from "./components/Skill.jsx";
-import Project from "./components/project.jsx";
+ 
 import Footer from "./components/Footer.jsx";
 import Wrap from "./components/Wrap.jsx"; // Impor komponen Wrap
 import MyComponent from "./test/test.jsx";
