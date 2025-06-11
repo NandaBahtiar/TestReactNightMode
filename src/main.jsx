@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 
 import HeaderComponent from "./components/HeaderComponent.jsx";
-import Jumbotron from "./components/jumbotron.jsx";
+ 
 import Skill from "./components/Skill.jsx";
 import Project from "./components/project.jsx";
 import Footer from "./components/Footer.jsx";
