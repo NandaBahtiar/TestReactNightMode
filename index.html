@@ -1,20 +1,98 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tampilan Ponsel - LastBite</title>
+    
+    <!-- Tailwind CSS for framing -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins for framing -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e5e7eb; /* gray-200 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .mobile-frame {
+            width: 414px; /* iPhone 8 Plus width */
+            height: 896px; /* iPhone 11 Pro Max height */
+            background-color: #111827; /* gray-900 */
+            border-radius: 40px;
+            padding: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+        }
+        .mobile-screen {
+            background-color: white;
+            flex-grow: 1;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+        .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 210px;
+            height: 30px;
+            background-color: #111827;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 10;
+        }
+        .notch::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 5px;
+            background-color: #374151; /* gray-700 */
+            border-radius: 10px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-frame">
+        <div class="mobile-screen">
+            <div class="notch"></div>
+            <iframe srcdoc="
+<!DOCTYPE html>
+<html lang='en' class='scroll-smooth'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>LastBite - Save Food, Save Money</title>
     
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src='https://cdn.tailwindcss.com'></script>
     
     <!-- Google Fonts: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap' rel='stylesheet'>
     
     <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'>
 
     <!-- Custom Styles -->
     <style>
@@ -32,35 +110,25 @@
         .hover\:bg-secondary-dark:hover { background-color: #e65c2e; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class='bg-gray-50 text-gray-800'>
 
     <!-- Header / Navigation -->
-    <header id="header" class="bg-white shadow-md fixed w-full top-0 z-50">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-primary">
-                LastBite<span class="text-secondary">.</span>
+    <header id='header' class='bg-white shadow-md fixed w-full top-0 z-50'>
+        <nav class='container mx-auto px-6 py-3 flex justify-between items-center'>
+            <a href='#' class='text-2xl font-bold text-primary'>
+                LastBite<span class='text-secondary'>.</span>
             </a>
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="#how-it-works" class="text-gray-600 hover:text-primary">How It Works</a>
-                <a href="#for-partners" class="text-gray-600 hover:text-primary">Become a Partner</a>
-                <a href="#contact" class="text-gray-600 hover:text-primary">Contact</a>
-            </div>
-            <div class="hidden md:block">
-                <a href="#download" class="bg-secondary text-white font-semibold px-5 py-2 rounded-full hover:bg-secondary-dark transition duration-300">
-                    Download App
-                </a>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden text-gray-800">
-                <i class="fas fa-bars text-2xl"></i>
+            <button id='mobile-menu-button' class='md:hidden text-gray-800'>
+                <i class='fas fa-bars text-2xl'></i>
             </button>
         </nav>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white py-4">
-            <a href="#how-it-works" class="block text-center py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">How It Works</a>
-            <a href="#for-partners" class="block text-center py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Become a Partner</a>
-            <a href="#contact" class="block text-center py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Contact</a>
-            <div class="mt-4 text-center">
-                 <a href="#download" class="bg-secondary text-white font-semibold px-5 py-2 rounded-full hover:bg-secondary-dark transition duration-300">
+        <div id='mobile-menu' class='hidden md:hidden bg-white py-4'>
+            <a href='#how-it-works' class='block text-center py-2 px-4 text-sm text-gray-700 hover:bg-gray-100'>How It Works</a>
+            <a href='#for-partners' class='block text-center py-2 px-4 text-sm text-gray-700 hover:bg-gray-100'>Become a Partner</a>
+            <a href='#contact' class='block text-center py-2 px-4 text-sm text-gray-700 hover:bg-gray-100'>Contact</a>
+            <div class='mt-4 text-center'>
+                 <a href='#download' class='bg-secondary text-white font-semibold px-5 py-2 rounded-full hover:bg-secondary-dark transition duration-300'>
                     Download App
                 </a>
             </div>
@@ -69,167 +137,167 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="bg-primary text-white pt-32 pb-20">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Delicious Food, Friendly Prices.</h1>
-                <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8">
-                    Get quality surplus food from your favorite restaurants and cafes at a huge discount. Reduce food waste starting today.
+        <section class='bg-primary text-white pt-24 pb-16'>
+            <div class='container mx-auto px-6 text-center'>
+                <h1 class='text-4xl font-extrabold leading-tight mb-4'>Delicious Food, Friendly Prices.</h1>
+                <p class='text-lg text-gray-200 max-w-3xl mx-auto mb-8'>
+                    Get quality surplus food from your favorite restaurants and cafes at a huge discount.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a href="#download" class="bg-secondary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-secondary-dark transition duration-300 w-full sm:w-auto">
-                        <i class="fas fa-utensils mr-2"></i> Find Food
+                <div class='flex flex-col justify-center items-center gap-4'>
+                    <a href='#download' class='bg-secondary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-secondary-dark transition duration-300 w-full'>
+                        <i class='fas fa-utensils mr-2'></i> Find Food
                     </a>
-                    <a href="#for-partners" class="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-white hover:text-primary transition duration-300 w-full sm:w-auto">
-                        <i class="fas fa-handshake mr-2"></i> Become a Seller Partner
+                    <a href='#for-partners' class='bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-white hover:text-primary transition duration-300 w-full'>
+                        <i class='fas fa-handshake mr-2'></i> Become a Partner
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- How It Works Section -->
-        <section id="how-it-works" class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Just 3 Easy Steps</h2>
-                    <p class="text-muted mt-2">Save delicious food quickly and conveniently.</p>
+        <section id='how-it-works' class='py-16'>
+            <div class='container mx-auto px-6'>
+                <div class='text-center mb-12'>
+                    <h2 class='text-3xl font-bold text-gray-800'>Just 3 Easy Steps</h2>
+                    <p class='text-muted mt-2'>Save delicious food quickly and conveniently.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                <div class='grid grid-cols-1 gap-10 text-center'>
                     <!-- Step 1 -->
-                    <div class="p-6">
-                        <div class="flex items-center justify-center h-20 w-20 rounded-full bg-secondary text-white text-3xl mx-auto mb-4">
-                            <i class="fas fa-search-location"></i>
+                    <div class='p-6'>
+                        <div class='flex items-center justify-center h-20 w-20 rounded-full bg-secondary text-white text-3xl mx-auto mb-4'>
+                            <i class='fas fa-search-location'></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">1. Discover</h3>
-                        <p class="text-muted">Explore surplus food offers from restaurants and stores around you.</p>
+                        <h3 class='text-xl font-semibold mb-2'>1. Discover</h3>
+                        <p class='text-muted'>Explore surplus food offers from restaurants and stores around you.</p>
                     </div>
                     <!-- Step 2 -->
-                    <div class="p-6">
-                        <div class="flex items-center justify-center h-20 w-20 rounded-full bg-secondary text-white text-3xl mx-auto mb-4">
-                            <i class="fas fa-credit-card"></i>
+                    <div class='p-6'>
+                        <div class='flex items-center justify-center h-20 w-20 rounded-full bg-secondary text-white text-3xl mx-auto mb-4'>
+                            <i class='fas fa-credit-card'></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">2. Order & Pay</h3>
-                        <p class="text-muted">Order your chosen food and pay securely directly in the app.</p>
+                        <h3 class='text-xl font-semibold mb-2'>2. Order & Pay</h3>
+                        <p class='text-muted'>Order your chosen food and pay securely directly in the app.</p>
                     </div>
                     <!-- Step 3 -->
-                    <div class="p-6">
-                        <div class="flex items-center justify-center h-20 w-20 rounded-full bg-secondary text-white text-3xl mx-auto mb-4">
-                            <i class="fas fa-shopping-bag"></i>
+                    <div class='p-6'>
+                        <div class='flex items-center justify-center h-20 w-20 rounded-full bg-secondary text-white text-3xl mx-auto mb-4'>
+                            <i class='fas fa-shopping-bag'></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">3. Pick Up & Enjoy</h3>
-                        <p class="text-muted">Pick up your order at the seller's location at the specified time. Enjoy!</p>
+                        <h3 class='text-xl font-semibold mb-2'>3. Pick Up & Enjoy</h3>
+                        <p class='text-muted'>Pick up your order at the seller's location at the specified time. Enjoy!</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Benefits Section -->
-        <section class="bg-white py-20">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-                <div class="text-center md:text-left">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Why LastBite?</h2>
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl">
-                                <i class="fas fa-wallet"></i>
+        <section class='bg-white py-16'>
+            <div class='container mx-auto px-6'>
+                <div class='text-center'>
+                    <h2 class='text-3xl font-bold text-gray-800 mb-6'>Why LastBite?</h2>
+                    <div class='space-y-6'>
+                        <div class='flex items-start gap-4'>
+                            <div class='flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl'>
+                                <i class='fas fa-wallet'></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-lg">Save Money</h4>
-                                <p class="text-muted">Enjoy quality food at a much lower price.</p>
+                                <h4 class='font-semibold text-lg text-left'>Save Money</h4>
+                                <p class='text-muted text-left'>Enjoy quality food at a much lower price.</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl">
-                                <i class="fas fa-leaf"></i>
+                        <div class='flex items-start gap-4'>
+                            <div class='flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl'>
+                                <i class='fas fa-leaf'></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-lg">Save the Environment</h4>
-                                <p class="text-muted">Every order you make helps reduce food waste and your carbon footprint.</p>
+                                <h4 class='font-semibold text-lg text-left'>Save the Environment</h4>
+                                <p class='text-muted text-left'>Every order you make helps reduce food waste and your carbon footprint.</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl">
-                                <i class="fas fa-store"></i>
+                        <div class='flex items-start gap-4'>
+                            <div class='flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl'>
+                                <i class='fas fa-store'></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-lg">Support Local SMEs</h4>
-                                <p class="text-muted">Help local culinary businesses turn potential losses into profits.</p>
+                                <h4 class='font-semibold text-lg text-left'>Support Local SMEs</h4>
+                                <p class='text-muted text-left'>Help local culinary businesses turn potential losses into profits.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="mt-10 md:mt-0">
-                    <img src="https://placehold.co/600x400/2ECC71/FFFFFF?text=LastBite+App+Preview" alt="LastBite App Preview" class="rounded-lg shadow-xl w-full">
+                <div class='mt-10'>
+                    <img src='https://placehold.co/600x400/2ECC71/FFFFFF?text=LastBite+App+Preview' alt='[Gambar Pratinjau Aplikasi LastBite]' class='rounded-lg shadow-xl w-full'>
                 </div>
             </div>
         </section>
 
         <!-- For Partners Section -->
-        <section id="for-partners" class="bg-primary text-white py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Turn Surplus Food Into Profit</h2>
-                <p class="text-gray-200 max-w-2xl mx-auto mb-8">
-                    Have leftover, sellable food at the end of the day? Don't throw it away! Join LastBite and earn extra income while helping the environment.
+        <section id='for-partners' class='bg-primary text-white py-16'>
+            <div class='container mx-auto px-6 text-center'>
+                <h2 class='text-3xl font-bold mb-4'>Turn Surplus Food Into Profit</h2>
+                <p class='text-gray-200 max-w-2xl mx-auto mb-8'>
+                    Have leftover, sellable food at the end of the day? Don't throw it away!
                 </p>
-                <a href="#download" class="bg-secondary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-secondary-dark transition duration-300">
+                <a href='#download' class='bg-secondary text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-secondary-dark transition duration-300'>
                     Register in the App
                 </a>
             </div>
         </section>
 
         <!-- Environmental Impact Section -->
-        <section id="impact" class="py-20 bg-gray-100">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Collective Impact</h2>
-                <p class="text-muted max-w-2xl mx-auto mb-12">Every meal saved contributes to a healthier planet. See what our community has achieved together.</p>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <section id='impact' class='py-16 bg-gray-100'>
+            <div class='container mx-auto px-6 text-center'>
+                <h2 class='text-3xl font-bold text-gray-800 mb-4'>Our Collective Impact</h2>
+                <p class='text-muted max-w-2xl mx-auto mb-12'>See what our community has achieved together.</p>
+                <div class='grid grid-cols-1 gap-8'>
                     <!-- Stat 1: Meals Saved -->
-                    <div class="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
-                        <div class="text-primary text-5xl mb-4"><i class="fas fa-utensils"></i></div>
-                        <h3 class="text-4xl font-bold text-gray-800 counter" data-target="15780">0</h3>
-                        <p class="text-muted mt-2">Meals Saved</p>
+                    <div class='bg-white p-6 rounded-lg shadow-lg'>
+                        <div class='text-primary text-5xl mb-4'><i class='fas fa-utensils'></i></div>
+                        <h3 class='text-4xl font-bold text-gray-800 counter' data-target='15780'>0</h3>
+                        <p class='text-muted mt-2'>Meals Saved</p>
                     </div>
                     <!-- Stat 2: CO2 Prevented -->
-                    <div class="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
-                        <div class="text-primary text-5xl mb-4"><i class="fas fa-smog"></i></div>
-                        <h3 class="text-4xl font-bold text-gray-800 counter" data-target="39450">0</h3>
-                        <p class="text-muted mt-2">Kg of CO₂ Prevented</p>
+                    <div class='bg-white p-6 rounded-lg shadow-lg'>
+                        <div class='text-primary text-5xl mb-4'><i class='fas fa-smog'></i></div>
+                        <h3 class='text-4xl font-bold text-gray-800 counter' data-target='39450'>0</h3>
+                        <p class='text-muted mt-2'>Kg of CO₂ Prevented</p>
                     </div>
                     <!-- Stat 3: Water Saved -->
-                    <div class="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
-                        <div class="text-primary text-5xl mb-4"><i class="fas fa-tint"></i></div>
-                        <h3 class="text-4xl font-bold text-gray-800 counter" data-target="23500000">0</h3>
-                        <p class="text-muted mt-2">Liters of Water Saved</p>
+                    <div class='bg-white p-6 rounded-lg shadow-lg'>
+                        <div class='text-primary text-5xl mb-4'><i class='fas fa-tint'></i></div>
+                        <h3 class='text-4xl font-bold text-gray-800 counter' data-target='23500000'>0</h3>
+                        <p class='text-muted mt-2'>Liters of Water Saved</p>
                     </div>
                 </div>
             </div>
         </section>
         
         <!-- Testimonials Section -->
-        <section id="testimonials" class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">What They Say</h2>
+        <section id='testimonials' class='py-16'>
+            <div class='container mx-auto px-6'>
+                <div class='text-center mb-12'>
+                    <h2 class='text-3xl font-bold text-gray-800'>What They Say</h2>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class='grid grid-cols-1 gap-8'>
                     <!-- Testimonial 1 (Customer) -->
-                    <div class="bg-white p-8 rounded-lg shadow-lg">
-                        <p class="text-muted italic mb-4">"LastBite helps me as a student to eat well without overspending. There are many choices and the prices are very affordable!"</p>
-                        <div class="flex items-center">
-                            <img src="https://placehold.co/50x50/FF6B35/FFFFFF?text=A" alt="User Avatar" class="w-12 h-12 rounded-full mr-4">
+                    <div class='bg-white p-8 rounded-lg shadow-lg'>
+                        <p class='text-muted italic mb-4'>'LastBite helps me as a student to eat well without overspending. The prices are very affordable!'</p>
+                        <div class='flex items-center'>
+                            <img src='https://placehold.co/50x50/FF6B35/FFFFFF?text=A' alt='[Avatar Pengguna]' class='w-12 h-12 rounded-full mr-4'>
                             <div>
-                                <p class="font-semibold">Andi - Student</p>
-                                <p class="text-muted text-sm">LastBite User</p>
+                                <p class='font-semibold'>Andi - Student</p>
+                                <p class='text-muted text-sm'>LastBite User</p>
                             </div>
                         </div>
                     </div>
                     <!-- Testimonial 2 (Partner) -->
-                    <div class="bg-white p-8 rounded-lg shadow-lg">
-                        <p class="text-muted italic mb-4">"This app is a smart solution to reduce leftover bread in our shop every day. The process is easy and the team is very supportive."</p>
-                        <div class="flex items-center">
-                            <img src="https://placehold.co/50x50/2ECC71/FFFFFF?text=B" alt="Partner Avatar" class="w-12 h-12 rounded-full mr-4">
+                    <div class='bg-white p-8 rounded-lg shadow-lg'>
+                        <p class='text-muted italic mb-4'>'This app is a smart solution to reduce leftover bread in our shop every day. The process is easy!'</p>
+                        <div class='flex items-center'>
+                            <img src='https://placehold.co/50x50/2ECC71/FFFFFF?text=B' alt='[Avatar Mitra]' class='w-12 h-12 rounded-full mr-4'>
                             <div>
-                                <p class="font-semibold">Mrs. Budi - Budi Bakery</p>
-                                <p class="text-muted text-sm">LastBite Partner</p>
+                                <p class='font-semibold'>Mrs. Budi - Budi Bakery</p>
+                                <p class='text-muted text-sm'>LastBite Partner</p>
                             </div>
                         </div>
                     </div>
@@ -238,18 +306,18 @@
         </section>
 
         <!-- UPDATED: Final CTA Section -->
-        <section id="download" class="bg-white py-20">
-            <div class="container mx-auto px-6 text-center">
-                 <h2 class="text-3xl md:text-4xl font-bold text-primary">It All Starts With One App</h2>
-                 <p class="text-muted mt-4 mb-10 max-w-2xl mx-auto">
-                     For food lovers and businesses alike, registration and discovery happen right in the app. Download now to join our community!
+        <section id='download' class='bg-white py-16'>
+            <div class='container mx-auto px-6 text-center'>
+                 <h2 class='text-3xl font-bold text-primary'>It All Starts With One App</h2>
+                 <p class='text-muted mt-4 mb-10 max-w-2xl mx-auto'>
+                     For food lovers and businesses alike, registration and discovery happen right in the app.
                  </p>
-                 <div class="flex justify-center items-center flex-wrap gap-4">
-                     <a href="#" class="transform hover:scale-105 transition-transform">
-                        <img src="https://placehold.co/180x60/000000/FFFFFF?text=Get+it+on+Google+Play" alt="Get it on Google Play" class="h-14">
+                 <div class='flex flex-col items-center gap-4'>
+                     <a href='#' class='transform hover:scale-105 transition-transform'>
+                        <img src='https://placehold.co/280x80/000000/FFFFFF?text=Get+it+on+Google+Play' alt='[Tombol Google Play]' class='h-16'>
                      </a>
-                     <a href="#" class="transform hover:scale-105 transition-transform">
-                        <img src="https://placehold.co/180x60/000000/FFFFFF?text=Download+on+the+App+Store" alt="Download on the App Store" class="h-14">
+                     <a href='#' class='transform hover:scale-105 transition-transform'>
+                        <img src='https://placehold.co/280x80/000000/FFFFFF?text=Download+on+the+App+Store' alt='[Tombol App Store]' class='h-16'>
                      </a>
                  </div>
             </div>
@@ -258,42 +326,40 @@
     </main>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-gray-900 text-white">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer id='contact' class='bg-gray-900 text-white'>
+        <div class='container mx-auto px-6 py-12'>
+            <div class='grid grid-cols-1 gap-8 text-center'>
                 <!-- About -->
-                <div class="col-span-1 md:col-span-2">
-                    <h3 class="text-2xl font-bold mb-2">LastBite<span class="text-secondary">.</span></h3>
-                    <p class="text-gray-400 max-w-md">
-                        A digital platform to save delicious surplus food, connecting culinary businesses with smart flavor hunters.
+                <div>
+                    <h3 class='text-2xl font-bold mb-2'>LastBite<span class='text-secondary'>.</span></h3>
+                    <p class='text-gray-400 max-w-md mx-auto'>
+                        A digital platform to save delicious surplus food.
                     </p>
-                    <p class="text-gray-500 text-sm mt-4">Developed by <a href="#" class="hover:text-secondary">Enigma Camp</a></p>
+                    <p class='text-gray-500 text-sm mt-4'>Developed by <a href='#' class='hover:text-secondary'>Enigma Camp</a></p>
                 </div>
                 <!-- Links -->
                 <div>
-                    <h4 class="font-semibold text-lg mb-4">Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#how-it-works" class="text-gray-400 hover:text-white">How It Works</a></li>
-                        <li><a href="#for-partners" class="text-gray-400 hover:text-white">Become a Partner</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">FAQ</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                    <h4 class='font-semibold text-lg mb-4'>Links</h4>
+                    <ul class='space-y-2'>
+                        <li><a href='#how-it-works' class='text-gray-400 hover:text-white'>How It Works</a></li>
+                        <li><a href='#for-partners' class='text-gray-400 hover:text-white'>Become a Partner</a></li>
                     </ul>
                 </div>
                 <!-- Contact & Social -->
                 <div>
-                    <h4 class="font-semibold text-lg mb-4">Contact Us</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><i class="fas fa-envelope mr-2"></i> support@lastbite.com</li>
-                        <li><i class="fas fa-phone mr-2"></i> (021) 123-4567</li>
+                    <h4 class='font-semibold text-lg mb-4'>Contact Us</h4>
+                    <ul class='space-y-2 text-gray-400'>
+                        <li><i class='fas fa-envelope mr-2'></i> support@lastbite.com</li>
+                        <li><i class='fas fa-phone mr-2'></i> (021) 123-4567</li>
                     </ul>
-                    <div class="flex space-x-4 mt-6">
-                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-twitter"></i></a>
+                    <div class='flex justify-center space-x-4 mt-6'>
+                        <a href='#' class='text-gray-400 hover:text-white text-2xl'><i class='fab fa-facebook'></i></a>
+                        <a href='#' class='text-gray-400 hover:text-white text-2xl'><i class='fab fa-instagram'></i></a>
+                        <a href='#' class='text-gray-400 hover:text-white text-2xl'><i class='fab fa-twitter'></i></a>
                     </div>
                 </div>
             </div>
-            <div class="mt-12 border-t border-gray-800 pt-6 text-center text-gray-500 text-sm">
+            <div class='mt-12 border-t border-gray-800 pt-6 text-center text-gray-500 text-sm'>
                 <p>&copy; 2025 LastBite by Enigma Camp. All Rights Reserved.</p>
             </div>
         </div>
@@ -346,6 +412,12 @@
             observer.observe(counter);
         });
     </script>
+
+</body>
+</html>
+            "></iframe>
+        </div>
+    </div>
 
 </body>
 </html>
