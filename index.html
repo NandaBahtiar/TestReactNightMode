@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manajemen Mitra - LastBite</title>
+    <title>Riwayat Transaksi - LastBite</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -67,11 +67,11 @@
                     <i class="fas fa-users w-6"></i>
                     <span class="ml-3">Manajemen Pengguna</span>
                 </a>
-                <a href="#" class="flex items-center px-4 py-2 text-white bg-primary rounded-lg">
+                <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-200 rounded-lg">
                     <i class="fas fa-handshake w-6"></i>
                     <span class="ml-3">Manajemen Mitra</span>
                 </a>
-                <a href="#" class="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-200 rounded-lg">
+                <a href="#" class="flex items-center px-4 py-2 text-white bg-primary rounded-lg">
                     <i class="fas fa-receipt w-6"></i>
                     <span class="ml-3">Riwayat Transaksi</span>
                 </a>
@@ -96,7 +96,7 @@
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
                 <div class="flex items-center">
-                    <h2 class="text-2xl font-semibold text-gray-800">Manajemen Mitra</h2>
+                    <h2 class="text-2xl font-semibold text-gray-800">Riwayat Transaksi</h2>
                 </div>
                 <div class="flex items-center space-x-4">
                     <i class="fas fa-bell text-gray-600"></i>
@@ -112,105 +112,91 @@
 
             <main class="p-6">
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <!-- Header with Search and Actions -->
+                    <!-- Header with Search and Filters -->
                     <div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
                         <div class="relative w-full sm:w-auto">
                             <span class="absolute inset-y-0 left-0 flex items-center pl-3">
                                 <i class="fas fa-search text-gray-400"></i>
                             </span>
-                            <input type="text" placeholder="Cari mitra..." class="w-full sm:w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            <input type="text" placeholder="Cari Order ID..." class="w-full sm:w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
                         </div>
-                        <div class="flex items-center gap-4 w-full sm:w-auto">
+                        <div class="flex items-center gap-4 w-full sm:w-auto flex-wrap">
+                           <input type="date" class="w-full sm:w-auto border border-gray-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary">
                            <select class="w-full sm:w-auto border border-gray-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-primary">
                                <option>Filter Status</option>
-                               <option>Aktif</option>
-                               <option>Menunggu Verifikasi</option>
-                               <option>Ditangguhkan</option>
+                               <option>Selesai</option>
+                               <option>Siap Diambil</option>
+                               <option>Dibatalkan</option>
+                               <option>Dibayar</option>
                            </select>
-                            <button class="w-full sm:w-auto bg-primary text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-600 flex items-center justify-center">
-                                <i class="fas fa-plus mr-2"></i>
-                                <span>Tambah Mitra</span>
+                            <button class="w-full sm:w-auto bg-secondary text-white font-semibold py-2 px-4 rounded-lg hover:bg-orange-600 flex items-center justify-center">
+                                <i class="fas fa-file-export mr-2"></i>
+                                <span>Ekspor</span>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Partners Table -->
+                    <!-- Transactions Table -->
                     <div class="overflow-x-auto">
                         <table class="w-full text-sm text-left text-gray-500">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3">Nama Mitra</th>
-                                    <th scope="col" class="px-6 py-3">Lokasi</th>
-                                    <th scope="col" class="px-6 py-3">Rating</th>
-                                    <th scope="col" class="px-6 py-3">Tanggal Bergabung</th>
+                                    <th scope="col" class="px-6 py-3">Order ID</th>
+                                    <th scope="col" class="px-6 py-3">Pelanggan</th>
+                                    <th scope="col" class="px-6 py-3">Mitra</th>
+                                    <th scope="col" class="px-6 py-3">Tanggal</th>
+                                    <th scope="col" class="px-6 py-3">Jumlah</th>
                                     <th scope="col" class="px-6 py-3">Status</th>
                                     <th scope="col" class="px-6 py-3 text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Sample Row 1: Active -->
+                                <!-- Sample Row 1: Selesai -->
                                 <tr class="bg-white border-b hover:bg-gray-50">
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <img class="w-10 h-10 rounded-lg object-cover" src="https://placehold.co/100x100/2ECC71/FFFFFF?text=KB" alt="[Gambar Logo Mitra]">
-                                            <div class="ml-3">
-                                                <p class="font-semibold text-gray-900">Kopi Bahagia</p>
-                                                <p class="text-xs text-gray-500">contact@kopibahagia.com</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">Surabaya</td>
-                                    <td class="px-6 py-4">
-                                        <span class="text-yellow-500"><i class="fas fa-star"></i></span> 4.8
-                                    </td>
-                                    <td class="px-6 py-4">24 Juni 2025</td>
-                                    <td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold text-green-800 bg-green-100 rounded-full">Aktif</span></td>
-                                    <td class="px-6 py-4 text-center">
-                                        <button class="text-gray-500 hover:text-gray-800 mr-2" title="Lihat Detail"><i class="fas fa-eye"></i></button>
-                                        <button class="text-blue-600 hover:text-blue-900 mr-2" title="Edit"><i class="fas fa-edit"></i></button>
-                                        <button class="text-red-600 hover:text-red-900" title="Tangguhkan"><i class="fas fa-ban"></i></button>
-                                    </td>
-                                </tr>
-                                <!-- Sample Row 2: Pending Verification -->
-                                <tr class="bg-white border-b hover:bg-gray-50">
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <img class="w-10 h-10 rounded-lg object-cover" src="https://placehold.co/100x100/FF6B35/FFFFFF?text=RB" alt="[Gambar Logo Mitra]">
-                                            <div class="ml-3">
-                                                <p class="font-semibold text-gray-900">Roti Buana</p>
-                                                <p class="text-xs text-gray-500">info@rotibuana.id</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">Jakarta</td>
-                                    <td class="px-6 py-4">-</td>
+                                    <td class="px-6 py-4 font-medium text-gray-900">#LB-1025</td>
+                                    <td class="px-6 py-4">Budi Santoso</td>
+                                    <td class="px-6 py-4">Kopi Bahagia</td>
                                     <td class="px-6 py-4">28 Juni 2025</td>
-                                    <td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold text-yellow-800 bg-yellow-100 rounded-full">Menunggu Verifikasi</span></td>
+                                    <td class="px-6 py-4">Rp 25.000</td>
+                                    <td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold text-green-800 bg-green-100 rounded-full">Selesai</span></td>
                                     <td class="px-6 py-4 text-center">
-                                        <button class="text-primary hover:text-green-700 font-bold" title="Verifikasi Sekarang">Verifikasi</button>
+                                        <button class="text-gray-500 hover:text-gray-800" title="Lihat Detail"><i class="fas fa-eye"></i></button>
                                     </td>
                                 </tr>
-                                <!-- Sample Row 3: Suspended -->
+                                <!-- Sample Row 2: Siap Diambil -->
                                 <tr class="bg-white border-b hover:bg-gray-50">
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <img class="w-10 h-10 rounded-lg object-cover" src="https://placehold.co/100x100/7F8C8D/FFFFFF?text=SC" alt="[Gambar Logo Mitra]">
-                                            <div class="ml-3">
-                                                <p class="font-semibold text-gray-900">Sate Ceria</p>
-                                                <p class="text-xs text-gray-500">sateceria@mail.com</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">Bandung</td>
-                                    <td class="px-6 py-4">
-                                        <span class="text-yellow-500"><i class="fas fa-star"></i></span> 4.2
-                                    </td>
-                                    <td class="px-6 py-4">15 Mei 2025</td>
-                                    <td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold text-red-800 bg-red-100 rounded-full">Ditangguhkan</span></td>
+                                    <td class="px-6 py-4 font-medium text-gray-900">#LB-1024</td>
+                                    <td class="px-6 py-4">Agus Wijaya</td>
+                                    <td class="px-6 py-4">Sate Ceria</td>
+                                    <td class="px-6 py-4">28 Juni 2025</td>
+                                    <td class="px-6 py-4">Rp 45.000</td>
+                                    <td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold text-yellow-800 bg-yellow-100 rounded-full">Siap Diambil</span></td>
                                     <td class="px-6 py-4 text-center">
-                                        <button class="text-gray-500 hover:text-gray-800 mr-2" title="Lihat Detail"><i class="fas fa-eye"></i></button>
-                                        <button class="text-blue-600 hover:text-blue-900 mr-2" title="Edit"><i class="fas fa-edit"></i></button>
-                                        <button class="text-green-600 hover:text-green-900" title="Aktifkan Kembali"><i class="fas fa-check-circle"></i></button>
+                                        <button class="text-gray-500 hover:text-gray-800" title="Lihat Detail"><i class="fas fa-eye"></i></button>
+                                    </td>
+                                </tr>
+                                <!-- Sample Row 3: Dibatalkan -->
+                                <tr class="bg-white border-b hover:bg-gray-50">
+                                    <td class="px-6 py-4 font-medium text-gray-900">#LB-1023</td>
+                                    <td class="px-6 py-4">Dewi Anggraini</td>
+                                    <td class="px-6 py-4">Kopi Bahagia</td>
+                                    <td class="px-6 py-4">27 Juni 2025</td>
+                                    <td class="px-6 py-4">Rp 22.000</td>
+                                    <td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold text-red-800 bg-red-100 rounded-full">Dibatalkan</span></td>
+                                    <td class="px-6 py-4 text-center">
+                                        <button class="text-gray-500 hover:text-gray-800" title="Lihat Detail"><i class="fas fa-eye"></i></button>
+                                    </td>
+                                </tr>
+                                 <!-- Sample Row 4: Dibayar -->
+                                <tr class="bg-white border-b hover:bg-gray-50">
+                                    <td class="px-6 py-4 font-medium text-gray-900">#LB-1022</td>
+                                    <td class="px-6 py-4">Citra Lestari</td>
+                                    <td class="px-6 py-4">Roti Buana</td>
+                                    <td class="px-6 py-4">27 Juni 2025</td>
+                                    <td class="px-6 py-4">Rp 15.000</td>
+                                    <td class="px-6 py-4"><span class="px-2 py-1 text-xs font-semibold text-blue-800 bg-blue-100 rounded-full">Dibayar</span></td>
+                                    <td class="px-6 py-4 text-center">
+                                        <button class="text-gray-500 hover:text-gray-800" title="Lihat Detail"><i class="fas fa-eye"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -220,7 +206,7 @@
                     <!-- Pagination -->
                     <div class="flex justify-between items-center mt-6">
                         <span class="text-sm text-gray-700">
-                            Menampilkan <span class="font-semibold text-gray-900">1</span> sampai <span class="font-semibold text-gray-900">10</span> dari <span class="font-semibold text-gray-900">75</span> Entri
+                            Menampilkan <span class="font-semibold text-gray-900">1</span> sampai <span class="font-semibold text-gray-900">10</span> dari <span class="font-semibold text-gray-900">5,430</span> Entri
                         </span>
                         <div class="inline-flex mt-2 xs:mt-0">
                             <button class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-l hover:bg-green-600">
